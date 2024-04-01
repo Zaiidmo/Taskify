@@ -17,11 +17,11 @@ export const SideBar = () => {
         <div className="flex flex-col justify-between flex-1 mt-6">
           <nav className="space-y-6">
             <div>
-              <label className="px-3 text-xs text-gray-600 uppercase ">
+              <label className="px-3 text-xs text-950 uppercase ">
                 # Admin
               </label>
               <a
-                className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-[#080710] hover:text-white"
+                className="flex items-center px-4 py-2 mt-5 text-950 transition-colors duration-300 transform rounded-lg  hover:bg-[#080710] hover:text-white"
                 href="{{ route('users') }}"
               >
                 <svg
@@ -39,7 +39,7 @@ export const SideBar = () => {
                 <span className="mx-4 font-medium">Users Management </span>
               </a>
               <a
-                className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-[#080710] hover:text-white"
+                className="flex items-center px-4 py-2 mt-5 text-950 transition-colors duration-300 transform rounded-lg  hover:bg-[#080710] hover:text-white"
                 href="#"
               >
                 <svg
@@ -58,12 +58,12 @@ export const SideBar = () => {
               </a>
             </div>
             <div>
-              <label className="px-3 text-xs text-gray-600 uppercase ">
+              <label className="px-3 text-xs text-950 uppercase ">
                 # User
               </label>
 
               <a
-                className="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-lg  hover:bg-[#080710] hover:text-white"
+                className="flex items-center px-4 py-2 mt-5 text-950 transition-colors duration-300 transform rounded-lg  hover:bg-[#080710] hover:text-white"
                 href="#"
               >
                 <svg

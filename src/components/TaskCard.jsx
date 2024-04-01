@@ -1,11 +1,11 @@
-export const TaskCard = () => {
+export const TaskCard = ({ color }) => {
   return (
-    <div className="bg-gray-400 border border-gray-300 p-4 font-poppins rounded-lg shadow-lg">
-      <h2 className="text-2xl text-Black font-semibold">Task</h2>
-      <p className="text-Black">
+    <div className={`${color} border border-gray-300 p-4 font-poppins rounded-lg shadow-lg`}>
+      <h2 className="text-2xl text-white font-semibold">Task</h2>
+      <p className="text-white">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
       </p>
-      <div className="flex gap-1">
+      <div className="flex gap-1 text-white">
         <button className="hover:text-purple-600 m-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
