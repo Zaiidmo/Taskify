@@ -1,14 +1,4 @@
 
-import React from "react";
-import ReactDOM from "react-dom";
-import { createBrowserRouter, RouterProvider, Navigate, Routes, Route } from "react-router-dom";
-import App from "./App.jsx";
-import Login from "./pages/Login.jsx";
-import Register from "./pages/Register.jsx";
-import "./index.css";
-
-const isLoggedIn = false; // Initial state is not logged in
-
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -24,6 +14,16 @@ const isLoggedIn = false; // Initial state is not logged in
 //   },
 // ]);
 
+import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserRouter, RouterProvider, Navigate, Routes, Route } from "react-router-dom";
+import App from "./App.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import "./index.css";
+
+const isLoggedIn = false; // Assuming initial state is not logged in
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,12 +31,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: isLoggedIn ? <App /> : <Navigate to="/login" />,
+    element: <Login />,
   },
   {
     path: "/register",
     element: <Register />,
-    // element: isLoggedIn ? <App /> : <Navigate to="/register" />,
   },
 ]);
 
