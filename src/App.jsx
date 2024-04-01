@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { NavBar } from "./components/NavBar";
 import { Login } from "./components/Login";
+import { Register } from "./components/Register";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -8,7 +9,8 @@ function App() {
   return (
     <>
      <NavBar />
-     <Login />
+     {/* <Login /> */}
+     <Register />
     </>
   );
 }

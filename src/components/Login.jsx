@@ -15,9 +15,16 @@ export const Login = () => {
         <input type="password" placeholder="Password" id="password" />
 
         <button className="login-btn">Log In</button>
-        
-        <label >Forgot your Password ?<a className="text-blue-800" href="
-    #">Recover it Here !</a></label>
+
+        <label>
+          Don't Have an Account,yet? <br />
+          <a
+            className="text-orange-600"
+            href="#"
+          >
+            Register Now 
+          </a>
+        </label>
       </form>
     </>
   );
