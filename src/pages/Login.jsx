@@ -18,7 +18,7 @@ const Login = () => {
 
         <label>
           Don't Have an Account, yet? <br />
-          <a className="text-orange-600" href="#">
+          <a className="text-orange-600" href="/register">
             Register Now
           </a>
         </label>
