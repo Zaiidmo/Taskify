@@ -1,3 +1,74 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ****** CUSTOM FONTS ****** */
+@font-face {
+    font-family: Titles;
+    src: url('./assets/fonts/Audiowide-Regular.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: Poppins;
+    src: url('./assets/fonts/Poppins-Regular.ttf');
+    font-weight: 700;
+}
+@font-face {
+    font-family: Revolution;
+    src: url('./assets/fonts/ProtestRevolution-Regular.ttf');
+    font-weight: 700;
+}
+
+
+/* ****** LOGIN STYLES ****** */
+.background {
+    @apply w-[430px] h-[520px] absolute -translate-x-2/4 -translate-y-2/4 left-2/4 top-2/4;
+  }
+  .background .shape {
+    @apply h-[200px] w-[200px] absolute rounded-[50%];
+  }
+  .shape:first-child {
+    @apply -left-20 -top-20;
+    background: linear-gradient(#1845ad, #23a2f6);
+  }
+  .shape:last-child {
+    @apply right-[-30px] -bottom-20;
+    background: linear-gradient(to right, #ff512f, #f09819);
+  }
+  form {
+    @apply h-[520px] w-[400px] bg-[rgba(255,255,255,0.13)] absolute -translate-x-2/4 -translate-y-2/4 backdrop-blur-[10px] shadow-[0_0_40px_rgba(8,7,16,0.6)] px-[35px] py-[50px] rounded-[10px] border-2 border-solid border-[rgba(255,255,255,0.1)] left-2/4 top-2/4;
+  }
+  form * {
+    @apply text-white tracking-[0.5px] border-[none];
+    font-family: "Poppins", sans-serif;
+    outline: none;
+  }
+  form h3 {
+    @apply text-[32px] font-medium leading-[42px] text-center;
+  }
+  label {
+    @apply block text-base font-medium mt-[30px];
+  }
+  input {
+    @apply block h-[50px] w-full bg-[rgba(255,255,255,0.07)] text-sm font-light mt-2 px-2.5 py-0 rounded-[3px];
+  }
+  ::placeholder {
+    @apply text-neutral-200;
+  }
+  .login-btn {
+    @apply w-full bg-white text-[#080710] text-lg font-semibold cursor-pointer mt-[50px] px-0 py-[15px] rounded-[5px];
+  }
+  .social {
+    @apply flex mt-[30px];
+  }
+  .social div {
+    @apply w-[150px] bg-[rgba(255,255,255,0.27)] text-[#eaf0fb] text-center pl-[5px] pr-2.5 pt-[5px] pb-2.5 rounded-[3px] hover:bg-[rgba(255,255,255,0.47)];
+    background: gray;
+  }
+  .social .fb {
+    @apply ml-[25px];
+  }
+  .social i {
+    @apply mr-1;
+  }
+  

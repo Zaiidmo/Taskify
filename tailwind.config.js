@@ -5,8 +5,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      poppins: ["poppins", "sans-serif"],
+      titles: ["Titles", "sans-serif"],
+      revolution: ["Revolution", "sans-serif"],
     extend: {},
   },
   plugins: [],
+}
 }
 
