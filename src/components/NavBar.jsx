@@ -2,7 +2,7 @@ import React from "react";
 
 export const NavBar = () => {
   return (
-    <div className="h-14 rounded-xl m-4 font-titles p-4 flex justify-between items-center navbar bg-gray-300">
+    <div className="h-14 rounded-xl m-4 font-titles p-4 flex justify-between items-center navbar bg-gray-400">
       <a
         href="#"
         className="flex items-center gap-3 hover:bg-black hover:text-white p-2 rounded-xl"

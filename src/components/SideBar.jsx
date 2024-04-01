@@ -3,7 +3,7 @@ import defaultAvatar from "../assets/images/default_profile.png";
 export const SideBar = () => {
   return (
     <>
-      <aside className="hidden lg:flex flex-col w-72 h-fit px-4 py-8 overflow-y-auto bg-gray-300 absolute top-24 m-4 rounded-xl">
+      <aside className="hidden lg:flex flex-col w-72 h-fit px-4 py-8 overflow-y-auto bg-gray-400 absolute top-24 m-4 rounded-xl">
         <div className="flex flex-col items-center mt-6 -mx-2">
           <img
             className="object-cover w-32 h-32 mx-2 rounded-full border-2 border-black"
