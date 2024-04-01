@@ -1,8 +1,8 @@
 export const Footer = () => {
   return (
     <>
-      <footer className="flex flex-col gap-8 text-center h-fit rounded-xl m-4 font-titles p-4 items-center navbar bg-gray-300">
-        <aside>
+      <footer className="flex flex-col gap-8 text-center h-fit rounded-xl m-4 font-titles p-4 items-center bg-gray-300">
+        <div>
           <svg
             width="50"
             height="50"
@@ -19,8 +19,8 @@ export const Footer = () => {
             Empowering Productivity,One Task at a Time!
           </p>
           <p>Copyright © 2024 - All right reserved</p>
-        </aside>
-        <nav>
+        </div>
+        <div>
           <div className="grid grid-flow-col gap-4">
             <a>
               <svg
@@ -56,7 +56,7 @@ export const Footer = () => {
               </svg>
             </a>
           </div>
-        </nav>
+        </div>
       </footer>
     </>
   );
