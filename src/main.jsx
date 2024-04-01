@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { createBrowserRouter, RouterProvider} from 'react-router-dom';
-import App from './App.jsx';
-import Login from './pages/Login.jsx';
-import Register from './pages/Register.jsx';
-import './index.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from "./App.jsx";
+import Login from "./pages/Login.jsx";
+import Register from "./pages/Register.jsx";
+import "./index.css";
 
 const router = createBrowserRouter([
   {
@@ -21,9 +21,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  <RouterProvider router={router} />
-    {/* <App /> */}
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
