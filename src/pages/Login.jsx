@@ -1,20 +1,40 @@
+import React, { useState } from "react";
+import axios from "axios";
 const Login = () => {
+
+  const [formData, setFormData] = useState({ email: "", password: "" });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  }
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post("http://localhost:8000/api/login", formData)
+      .then((response) => {
+        console.log(response.status);
+        setIsLoggedIn(true);
+      })
+      .catch((err) => {
+        console.error(err.message);
+      });
+  };
   return (
     <>
       <div className="background">
         <div className="shape"></div>
         <div className="shape"></div>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <h3 className="font-titles">Welcome Back!</h3>
 
-        <label htmlFor="username">Username</label>
-        <input type="text" placeholder="Email or Phone" id="username" />
+        <label htmlFor="email">Email</label>
+        <input type="text" name="email" onChange={handleChange} placeholder="Email" id="email" />
 
         <label htmlFor="password">Password</label>
-        <input type="password" placeholder="Password" id="password" />
+        <input type="password" onChange={handleChange} placeholder="Password" id="password" />
 
-        <button className="login-btn">Log In</button>
+        <button type="submit" className="login-btn">Log In</button>
 
         <label>
           Don't Have an Account, yet? <br />

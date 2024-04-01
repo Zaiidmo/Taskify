@@ -7,7 +7,7 @@ import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
 import "./index.css";
 
-const isLoggedIn = false; // Assuming initial state is not logged in
+const isLoggedIn = false; // Initial state is not logged in
 
 // const router = createBrowserRouter([
 //   {
@@ -31,11 +31,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: isLoggedIn ? <App /> : <Navigate to="/login" />,
   },
   {
     path: "/register",
     element: <Register />,
+    // element: isLoggedIn ? <App /> : <Navigate to="/register" />,
   },
 ]);
 
