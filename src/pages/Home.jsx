@@ -7,8 +7,8 @@ export const Home = () => {
   return (
     <>
     <NavBar />
-    <SideBar />
-      <div className="ml-80 h-screen">
+    {/* <SideBar /> */}
+      <div className="h-screen">
         <h1 className="font-revolution text-8xl text-center text-gray-300"> My Tasks </h1>
         <TasksGrid />
       </div>

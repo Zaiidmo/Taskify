@@ -3,6 +3,7 @@ import axios from "axios";
 const Login = () => {
 
   const [formData, setFormData] = useState({ email: "", password: "" });
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -13,7 +14,7 @@ const Login = () => {
     axios.post("http://localhost:8000/api/login", formData)
       .then((response) => {
         console.log(response.status);
-        setIsLoggedIn(true);
+        // setIsLoggedIn(true);
       })
       .catch((err) => {
         console.error(err.message);

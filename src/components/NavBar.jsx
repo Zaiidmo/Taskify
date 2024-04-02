@@ -2,10 +2,10 @@ import React from "react";
 
 export const NavBar = () => {
   return (
-    <div className="h-14 rounded-xl m-4 font-titles p-4 flex justify-between items-center navbar bg-gray-400">
+    <div className="h-14 rounded-xl m-4 font-titles p-4 flex justify-between items-center navbar bg-transparent border-2 border-gray-700">
       <a
         href="#"
-        className="flex items-center gap-3 hover:bg-black hover:text-white p-2 rounded-xl"
+        className="flex text-white items-center gap-3 hover:bg-gray-700 hover:text-black p-2 rounded-xl"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export const NavBar = () => {
         </svg>
         <button className=" text-xl">Taskify</button>
       </a>
-      <a href="#" className="flex items-center gap-3 hover:bg-black hover:text-white p-2 rounded-xl">
+      <a href="#"className="flex text-white items-center gap-3 hover:bg-gray-700 hover:text-black p-2 rounded-xl">
         <button className=" text-xl">
           Logout
         </button>
