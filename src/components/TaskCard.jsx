@@ -28,13 +28,32 @@ export const TaskCard = ({ border, title, description, taskId }) => {
     }
   };
 
+  const deleteTask = async (taskId) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.log("No Token Found for Delete!");
+        return;
+      }
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      await axios.delete(`http://127.0.0.1:8000/api/tasks/${taskId}/`, config);
+    }catch (error) {
+      alert('Failed to delete task');
+      console.error("Delete Error:: ", error);
+    }
+  };
+
   return (
     <div
       className={`${border} bg-gray-800 border border-white p-4 font-poppins rounded-lg shadow-lg`}
     >
       <div className="flex justify-between text-white">
         <h2 className="text-2xl  font-semibold">{title}</h2>
-        <button className="hover:text-red-600 m-0">
+        <button onClick = {() => deleteTask(taskId)} className="hover:text-red-600 m-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="12"
