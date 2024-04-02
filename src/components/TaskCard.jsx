@@ -1,10 +1,10 @@
-export const TaskCard = ({ color }) => {
+export const TaskCard = ({ color, title, description }) => {
   return (
     <div
       className={`${color} border border-white p-4 font-poppins rounded-lg shadow-lg`}
     >
       <div className="flex justify-between text-white">
-        <h2 className="text-2xl  font-semibold">Task</h2>
+        <h2 className="text-2xl  font-semibold">{title}</h2>
         <button className="hover:text-red-600 m-0">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -21,9 +21,7 @@ export const TaskCard = ({ color }) => {
           </svg>
         </button>
       </div>
-      <p className="text-white">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-      </p>
+      <p className="text-white">{description} </p>
       <div className="flex justify-end mt-4 gap-1 text-white">
         <button className="hover:text-purple-600 m-0">
           <svg

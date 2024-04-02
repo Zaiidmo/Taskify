@@ -8,7 +8,7 @@ export const Home = () => {
     <>
     <NavBar />
     {/* <SideBar /> */}
-      <div className="max-w-screen-xl mx-auto h-screen">
+      <div className="max-w-screen-xl mx-auto">
         <h1 className="font-revolution text-8xl text-center text-gray-300"> My Tasks </h1>
         <TasksGrid />
       </div>
