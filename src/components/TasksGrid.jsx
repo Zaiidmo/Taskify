@@ -36,14 +36,6 @@ export const TasksGrid = () => {
   const doingTasks = tasks.filter(task => task.status === "Doing");
   const doneTasks = tasks.filter(task => task.status === "Done");
 
-  // Function to update task status
-  const updateTaskStatus = (taskId, newStatus) => {
-    setTasks(prevTasks =>
-      prevTasks.map(task =>
-        task.id === taskId ? { ...task, status: newStatus } : task
-      )
-    );
-  };
 
   return (
     <div className="mt-8 md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -61,7 +53,6 @@ export const TasksGrid = () => {
               taskId={task.id}
               title={task.title}
               description={task.description}
-              updateTaskStatus={updateTaskStatus} // Pass down the function
             />
           ))}
         </div>
@@ -81,7 +72,6 @@ export const TasksGrid = () => {
               taskId={task.id}
               title={task.title}
               description={task.description}
-              updateTaskStatus={updateTaskStatus} // Pass down the function
             />
           ))}
         </div>
@@ -101,7 +91,6 @@ export const TasksGrid = () => {
               taskId={task.id}
               title={task.title}
               description={task.description}
-              updateTaskStatus={updateTaskStatus} // Pass down the function
             />
           ))}
         </div>
