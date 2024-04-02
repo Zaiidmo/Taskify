@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
     <>
-      <footer className="flex flex-col gap-8 text-center h-fit rounded-xl m-4 font-titles p-4 items-center bg-transparent border-2 text-white border-gray-700">
+      <footer className="max-w-screen-xl mx-auto flex flex-col gap-8 text-center h-fit rounded-xl m-4 font-titles p-4 items-center bg-transparent border-2 text-white border-gray-700">
         <div>
           <svg
             width="50"

@@ -1,6 +1,6 @@
 export const TaskCard = ({ color }) => {
   return (
-    <div className={`${color} border border-gray-300 p-4 font-poppins rounded-lg shadow-lg`}>
+    <div className={`${color} border border-white p-4 font-poppins rounded-lg shadow-lg`}>
       <h2 className="text-2xl text-white font-semibold">Task</h2>
       <p className="text-white">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
