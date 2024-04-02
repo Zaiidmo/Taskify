@@ -19,6 +19,7 @@ const Register = () => {
       .post("http://127.0.0.1:8000/api/register", formData)
       .then((response) => {
         console.log("Registration successful:", response.data);
+        window.location.href = "/login";
       })
       .catch((error) => {
         console.log("Registration error:", error.response.data);

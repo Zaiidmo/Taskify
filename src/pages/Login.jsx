@@ -1,25 +1,33 @@
 import React, { useState } from "react";
 import axios from "axios";
-const Login = () => {
 
+const Login = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // Initialize with false
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
-  }
-  
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post("http://localhost:8000/api/login", formData)
+    axios.post("http://127.0.0.1:8000/api/login", formData)
       .then((response) => {
         console.log(response.status);
-        // setIsLoggedIn(true);
+        if (response.status === 200) {
+          setIsLoggedIn(true);
+          localStorage.setItem("token", response.data.authorization.token);
+          window.location.href = "/"; 
+        } else {
+          setIsLoggedIn(false);
+        }
       })
       .catch((err) => {
         console.error(err.message);
       });
   };
+  
+  
   return (
     <>
       <div className="background">

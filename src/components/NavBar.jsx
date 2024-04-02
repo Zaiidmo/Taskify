@@ -1,10 +1,37 @@
 import React from "react";
+import axios from "axios";
 
 export const NavBar = () => {
+  const handleLogout = () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      console.error("No token found");
+      return;
+    }
+    console.log("Token:", token);
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    axios
+      .post("http://127.0.0.1:8000/api/logout", null, config)
+      .then((response) => {
+        console.log("Logged out successfully");
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+      })
+      .catch((error) => {
+        console.error("Logout failed:", error);
+      });
+  };
+
   return (
     <div className="h-14 rounded-xl m-4 font-titles p-4 flex justify-between max-w-screen-xl mx-auto items-center navbar bg-transparent border-2 border-gray-700">
       <a
-        href="#"
+        href="/"
         className="flex text-white items-center gap-3 hover:bg-gray-700 hover:text-black p-2 rounded-xl"
       >
         <svg
@@ -20,10 +47,11 @@ export const NavBar = () => {
         </svg>
         <button className=" text-xl">Taskify</button>
       </a>
-      <a href="#"className="flex text-white items-center gap-3 hover:bg-gray-700 hover:text-black p-2 rounded-xl">
-        <button className=" text-xl">
-          Logout
-        </button>
+      <a
+        className="flex text-white items-center gap-3 hover:bg-gray-700 hover:text-black p-2 rounded-xl"
+        onClick={handleLogout}
+      >
+        <button className=" text-xl">Logout</button>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="24"
