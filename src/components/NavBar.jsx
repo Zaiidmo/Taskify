@@ -29,7 +29,7 @@ export const NavBar = () => {
   };
 
   return (
-    <div className="md:mx-4 h-14 rounded-xl m-4 font-titles p-4 flex justify-between max-w-screen-xl mx-auto items-center navbar bg-transparent border-2 border-gray-700">
+    <div className="sm:mx-4 h-14 rounded-xl m-4 font-titles p-4 flex justify-between max-w-screen-xl lg:mx-auto items-center navbar bg-transparent border-2 border-gray-700">
       <a
         href="/"
         className="flex text-white items-center gap-3 hover:bg-gray-700 hover:text-black p-2 rounded-xl"

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { TaskCard } from "./TaskCard";
 
@@ -7,38 +7,43 @@ export const TasksGrid = () => {
   const [tasks, setTasks] = useState([]);
 
   useEffect(() => {
-    //Fetch The Tasks
     const fetchTasks = async () => {
-      try{
-        //Get The Users Token 
+      try {
         const token = localStorage.getItem('token');
         if (!token) {
           console.log('No Token Found');
           return;
         }
 
-        //Set The Authorization Header With The User's Token
         const config = {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         };
 
-        //Fetch The Tasks
         const response = await axios.get("http://127.0.0.1:8000/api/tasks/", config);
-        setTasks(response.data); // Update State With The fetched data
+        setTasks(response.data);
       } catch (error) {
         console.error("Error Fetching Data:: ", error);
       }
-      };
-    
+    };
+
     fetchTasks();
   }, []);
 
-  //Filter The Tasks Based On Their Status
+  // Filter tasks based on their status
   const todoTasks = tasks.filter(task => task.status === "To Do");
   const doingTasks = tasks.filter(task => task.status === "Doing");
   const doneTasks = tasks.filter(task => task.status === "Done");
+
+  // Function to update task status
+  const updateTaskStatus = (taskId, newStatus) => {
+    setTasks(prevTasks =>
+      prevTasks.map(task =>
+        task.id === taskId ? { ...task, status: newStatus } : task
+      )
+    );
+  };
 
   return (
     <div className="mt-8 md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -49,11 +54,19 @@ export const TasksGrid = () => {
         </div>
         <div className="p-8 bg-gray-900 rounded-lg shadow-lg flex flex-col gap-2">
           {todoTasks.map((task, index) => (
-            <TaskCard key={index} color="bg-gray-800" task={task} title={task.title} description={task.description} />
+            <TaskCard
+              key={index}
+              border="border-purple-800"
+              task={task}
+              taskId={task.id}
+              title={task.title}
+              description={task.description}
+              updateTaskStatus={updateTaskStatus} // Pass down the function
+            />
           ))}
         </div>
       </div>
-      
+
       {/* Render Doing tasks */}
       <div className="flex flex-col gap-4">
         <div className="bg-gray-900 p-4 rounded-lg shadow-lg">
@@ -61,7 +74,15 @@ export const TasksGrid = () => {
         </div>
         <div className="bg-gray-900 p-8 rounded-lg shadow-lg flex flex-col gap-2">
           {doingTasks.map((task, index) => (
-            <TaskCard key={index} color="bg-gray-800" task={task} title={task.title} description={task.description} />
+            <TaskCard
+              key={index}
+              border="border-blue-800"
+              task={task}
+              taskId={task.id}
+              title={task.title}
+              description={task.description}
+              updateTaskStatus={updateTaskStatus} // Pass down the function
+            />
           ))}
         </div>
       </div>
@@ -73,7 +94,15 @@ export const TasksGrid = () => {
         </div>
         <div className="bg-gray-900 p-8 rounded-lg shadow-lg flex flex-col gap-2">
           {doneTasks.map((task, index) => (
-            <TaskCard key={index} color="bg-gray-800" task={task} title={task.title} description={task.description} />
+            <TaskCard
+              key={index}
+              border="border-green-800"
+              task={task}
+              taskId={task.id}
+              title={task.title}
+              description={task.description}
+              updateTaskStatus={updateTaskStatus} // Pass down the function
+            />
           ))}
         </div>
       </div>
