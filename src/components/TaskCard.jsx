@@ -35,6 +35,58 @@ export const TaskCard = ({
       console.error("Error Making Task Done:: ", error);
     }
   };
+  const makeitToDo = async (taskId) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.log("No Token Found");
+        return;
+      }
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      await axios.put(
+        `http://127.0.0.1:8000/api/tasks/${taskId}/todo/`,
+        {},
+        config
+      );
+
+      // Call the updateTasks function passed from the parent component to update tasks immediately
+      updateTasks();
+    } catch (error) {
+      console.error("Error Making Task Done:: ", error);
+    }
+  };
+  const makeitDoing= async (taskId) => {
+    try {
+      const token = localStorage.getItem("token");
+      if (!token) {
+        console.log("No Token Found");
+        return;
+      }
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      await axios.put(
+        `http://127.0.0.1:8000/api/tasks/${taskId}/todo/`,
+        {},
+        config
+      );
+
+      // Call the updateTasks function passed from the parent component to update tasks immediately
+      updateTasks();
+    } catch (error) {
+      console.error("Error Making Task Done:: ", error);
+    }
+  };
 
   const deleteTask = async (taskId) => {
     try {
@@ -104,7 +156,10 @@ export const TaskCard = ({
           </svg>
         </button>
         <div className="flex justify-end gap-1">
-          <button className="hover:text-purple-600 m-0">
+          <button
+            onClick={() => makeitToDo(taskId)}
+            className="hover:text-purple-600 m-0"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
