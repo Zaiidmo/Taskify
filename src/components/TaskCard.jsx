@@ -61,7 +61,7 @@ export const TaskCard = ({
       console.error("Error Making Task Done:: ", error);
     }
   };
-  const makeitDoing= async (taskId) => {
+  const makeitDoing = async (taskId) => {
     try {
       const token = localStorage.getItem("token");
       if (!token) {
@@ -76,7 +76,7 @@ export const TaskCard = ({
       };
 
       await axios.put(
-        `http://127.0.0.1:8000/api/tasks/${taskId}/todo/`,
+        `http://127.0.0.1:8000/api/tasks/${taskId}/doing/`,
         {},
         config
       );
@@ -172,6 +172,29 @@ export const TaskCard = ({
                 d="M13 6a.75.75 0 0 1-.75-.75v-1.5h-1.5a.75.75 0 0 1 0-1.5h1.5V.75a.75.75 0 0 1 1.5 0v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5A.75.75 0 0 1 13 6M3 13.5a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h4.25a.75.75 0 0 0 0-1.5H3a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.75a.75.75 0 0 0-1.5 0V13a.5.5 0 0 1-.5.5z"
                 clipRule="evenodd"
               />
+            </svg>
+          </button>
+          <button
+            onClick={() => makeitDoing(taskId)}
+            className="hover:text-purple-600 m-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+            >
+              <g fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="4" cy="4" r="1" transform="rotate(90 4 4)" />
+                <circle cx="12" cy="4" r="1" transform="rotate(90 12 4)" />
+                <circle cx="20" cy="4" r="1" transform="rotate(90 20 4)" />
+                <circle cx="4" cy="12" r="1" transform="rotate(90 4 12)" />
+                <circle cx="12" cy="12" r="1" transform="rotate(90 12 12)" />
+                <circle cx="20" cy="12" r="1" transform="rotate(90 20 12)" />
+                <circle cx="4" cy="20" r="1" transform="rotate(90 4 20)" />
+                <circle cx="12" cy="20" r="1" transform="rotate(90 12 20)" />
+                <circle cx="20" cy="20" r="1" transform="rotate(90 20 20)" />
+              </g>
             </svg>
           </button>
           <button
