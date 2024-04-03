@@ -1,18 +1,25 @@
 import { Footer } from "../components/Footer";
 import { NavBar } from "../components/NavBar";
+import { Component } from "../components/Modal";
 import { SideBar } from "../components/SideBar";
 import { TasksGrid } from "../components/TasksGrid";
 
 export const Home = () => {
   return (
     <>
-    <NavBar />
-    {/* <SideBar /> */}
+      <NavBar />
+      {/* <SideBar /> */}
       <div className="max-w-screen-xl mx-auto">
-        <h1 className="font-revolution text-8xl text-center text-gray-300"> My Tasks</h1>
+        <div className="flex flex-col gap-12 items-center">
+          <h1 className="font-revolution text-8xl text-center text-gray-300">
+            {" "}
+            My Tasks
+          </h1>
+          <Component />
+        </div>
         <TasksGrid />
       </div>
-    <Footer />
+      <Footer />
     </>
   );
 };

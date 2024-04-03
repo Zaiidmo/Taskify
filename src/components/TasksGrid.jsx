@@ -31,6 +31,28 @@ export const TasksGrid = () => {
     fetchTasks();
   }, []);
 
+  // Function to update tasks after marking a task as done
+  const updateTasks = async () => {
+    try {
+      const token = localStorage.getItem('token');
+      if (!token) {
+        console.log('No Token Found');
+        return;
+      }
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      const response = await axios.get("http://127.0.0.1:8000/api/tasks/", config);
+      setTasks(response.data);
+    } catch (error) {
+      console.error("Error Updating Tasks:: ", error);
+    }
+  };
+
   // Filter tasks based on their status
   const todoTasks = tasks.filter(task => task.status === "To Do");
   const doingTasks = tasks.filter(task => task.status === "Doing");
@@ -53,6 +75,7 @@ export const TasksGrid = () => {
               taskId={task.id}
               title={task.title}
               description={task.description}
+              updateTasks={updateTasks} // Pass the updateTasks function
             />
           ))}
         </div>
@@ -72,6 +95,7 @@ export const TasksGrid = () => {
               taskId={task.id}
               title={task.title}
               description={task.description}
+              updateTasks={updateTasks} // Pass the updateTasks function
             />
           ))}
         </div>
@@ -91,6 +115,7 @@ export const TasksGrid = () => {
               taskId={task.id}
               title={task.title}
               description={task.description}
+              updateTasks={updateTasks} // Pass the updateTasks function
             />
           ))}
         </div>
