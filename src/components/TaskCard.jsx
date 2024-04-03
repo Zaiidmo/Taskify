@@ -6,6 +6,7 @@ export const TaskCard = ({
   title,
   description,
   taskId,
+  status,
   updateTasks,
 }) => {
   // Make Task Done
@@ -156,6 +157,7 @@ export const TaskCard = ({
           </svg>
         </button>
         <div className="flex justify-end gap-1">
+          {status === "To Do" ? <></> : (
           <button
             onClick={() => makeitToDo(taskId)}
             className="hover:text-purple-600 m-0"
@@ -174,6 +176,8 @@ export const TaskCard = ({
               />
             </svg>
           </button>
+          )}
+          {status === "Doing" ? <></> : (
           <button
             onClick={() => makeitDoing(taskId)}
             className="hover:text-purple-600 m-0"
@@ -197,6 +201,8 @@ export const TaskCard = ({
               </g>
             </svg>
           </button>
+          )}
+          {status === "Done" ? <></> : (
           <button
             onClick={() => makeDone(taskId)}
             className="hover:text-green-800 m-0"
@@ -215,6 +221,7 @@ export const TaskCard = ({
               />
             </svg>
           </button>
+          )}
         </div>
       </div>
     </div>

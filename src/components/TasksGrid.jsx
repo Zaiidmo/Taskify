@@ -74,6 +74,7 @@ export const TasksGrid = () => {
               task={task}
               taskId={task.id}
               title={task.title}
+              status={task.status}
               description={task.description}
               updateTasks={updateTasks} // Pass the updateTasks function
             />
@@ -94,6 +95,7 @@ export const TasksGrid = () => {
               task={task}
               taskId={task.id}
               title={task.title}
+              status={task.status}
               description={task.description}
               updateTasks={updateTasks} // Pass the updateTasks function
             />
@@ -114,6 +116,7 @@ export const TasksGrid = () => {
               task={task}
               taskId={task.id}
               title={task.title}
+              status={task.status}
               description={task.description}
               updateTasks={updateTasks} // Pass the updateTasks function
             />
