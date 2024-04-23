@@ -11,7 +11,7 @@ export const TasksGrid = ({tasks, updateTasks}) => {
 
 
   return (
-    tasks && <div className="mt-8 md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    tasks && <div className="mt-8 mx-4 md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {/* Render To Do tasks */}
       <div className="flex flex-col gap-4">
         <div className="bg-gray-900 p-4 rounded-lg shadow-lg">
