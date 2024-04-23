@@ -2,12 +2,11 @@ import { Button, Label, Modal, TextInput } from "flowbite-react";
 import { useState } from "react";
 import axios from "axios";
 
-export const EditModal = ( task, onCloseModal ) => {
+export const EditModal = ( {task, updateTasks}) => {
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description);
   const [error, setError] = useState("");
-  const [tasks, setTasks] = useState([]);
 
   function onCloseModal() {
     setOpenModal(false);
@@ -31,7 +30,7 @@ export const EditModal = ( task, onCloseModal ) => {
 
       // console.log(task.task);
       const response = await axios.put(
-        `http://127.0.0.1:8000/api/tasks/${task.task}/`,
+        `http://127.0.0.1:8000/api/tasks/${task}/`,
         {
           title,
           description,
@@ -52,26 +51,6 @@ export const EditModal = ( task, onCloseModal ) => {
     }
   }
 
-  const updateTasks = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        console.log("No Token Found");
-        return;
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
-      const response = await axios.get("http://127.0.0.1:8000/api/tasks/", config);
-      setTasks(response.data);
-    } catch (error) {
-      console.error("Error updating tasks:", error);
-    }
-  }
   
   return (
     <>

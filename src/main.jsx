@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import App from "./App.jsx";
 import Login from "./pages/Login.jsx";
@@ -22,8 +23,7 @@ const AuthRoute = ({ element, ...rest }) => {
   return isLoggedIn() ? <Navigate to="/" /> : element;
 };
 
-ReactDOM.render(
-  <React.StrictMode>
+createRoot(document.getElementById("root")).render(
     <BrowserRouter>
       <Routes>
         <Route
@@ -40,6 +40,4 @@ ReactDOM.render(
         />
       </Routes>
     </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
 );

@@ -1,13 +1,12 @@
 import { Button, Label, Modal, TextInput } from "flowbite-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from 'axios';
 
-export const Component = () => {
+export const Component = ({setTasks, updateTasks}) => {
   const [openModal, setOpenModal] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [error, setError] = useState("");
-  const [tasks, setTasks] = useState([]);
 
   function onCloseModal() {
     setOpenModal(false);
@@ -40,37 +39,17 @@ export const Component = () => {
       // Update tasks state with the newly created task
       setTasks(prevTasks => [...prevTasks, response.data.task]);
   
-      //Reset inputs And Close Modal
+      // Reset inputs and close modal
       onCloseModal();
-  
-      // Update tasks after adding the new task
       updateTasks();
+  
     } catch (error) {
       console.error("Error creating task:", error);
       setError("Failed to create task. Please try again.");
     }
   }
+  
 
-  const updateTasks = async () => {
-    try {
-      const token = localStorage.getItem("token");
-      if (!token) {
-        console.log("No Token Found");
-        return;
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
-      const response = await axios.get("http://127.0.0.1:8000/api/tasks/", config);
-      setTasks(response.data);
-    } catch (error) {
-      console.error("Error updating tasks:", error);
-    }
-  }
 
   return (
     <>

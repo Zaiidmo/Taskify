@@ -2,56 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from 'axios';
 import { TaskCard } from "./TaskCard";
 
-export const TasksGrid = () => {
-
-  const [tasks, setTasks] = useState([]);
-
-  useEffect(() => {
-    const fetchTasks = async () => {
-      try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          console.log('No Token Found');
-          return;
-        }
-
-        const config = {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        };
-
-        const response = await axios.get("http://127.0.0.1:8000/api/tasks/", config);
-        setTasks(response.data);
-      } catch (error) {
-        console.error("Error Fetching Data:: ", error);
-      }
-    };
-
-    fetchTasks();
-  }, []);
-
-  // Function to update tasks after marking a task as done
-  const updateTasks = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        console.log('No Token Found');
-        return;
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
-      const response = await axios.get("http://127.0.0.1:8000/api/tasks/", config);
-      setTasks(response.data);
-    } catch (error) {
-      console.error("Error Updating Tasks:: ", error);
-    }
-  };
+export const TasksGrid = ({tasks, updateTasks}) => {
 
   // Filter tasks based on their status
   const todoTasks = tasks.filter(task => task.status === "To Do");
@@ -60,7 +11,7 @@ export const TasksGrid = () => {
 
 
   return (
-    <div className="mt-8 md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    tasks && <div className="mt-8 md:mx-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {/* Render To Do tasks */}
       <div className="flex flex-col gap-4">
         <div className="bg-gray-900 p-4 rounded-lg shadow-lg">

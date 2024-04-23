@@ -139,7 +139,7 @@ export const TaskCard = ({
       <p className="text-white">{description}</p>
       <div className="flex justify-between mt-4  text-white">
         <EditModal
-          task={taskId}
+          task={taskId} updateTasks={updateTasks}
         />{" "}
         <div className="flex justify-end gap-1">
           {status === "To Do" ? (
